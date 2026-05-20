@@ -59,6 +59,5 @@ def main() -> None:
     subject.notify("sports", "goal")
     subject.notify("breaking", "alert")
 
-
 if __name__ == "__main__":
     main()
