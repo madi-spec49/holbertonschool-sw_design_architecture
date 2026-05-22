@@ -1,0 +1,24 @@
+sequenceDiagram
+```
+    participant User
+    participant Library
+    participant Book
+    participant Loan
+
+    User->>Library: register_user(name, email)
+    Library-->>User: user_id confirmé
+
+    User->>Library: create_loan(book_id)
+    Library->>Book: check_availability()
+    Book-->>Library: available = true
+    Library->>Book: mark_as_unavailable()
+    create participant Loan
+    Library->>Loan: create(start_date, end_date)
+    Loan-->>Library: loan_id confirmé
+    Library-->>User: emprunt confirmé
+
+    User->>Library: return_book(loan_id)
+    Library->>Loan: close_loan()
+    Library->>Book: mark_as_available()
+    Library-->>User: retour confirmé
+	```
